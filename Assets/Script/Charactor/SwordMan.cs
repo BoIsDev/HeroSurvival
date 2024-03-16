@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordMan : MonoBehaviour
-{
+public class SwordMan : MonoBehaviour, ICharacter
 
-    
-    public string GetNameCharacter()
+{
+  
+     public string GetNameCharacter()
     {
         return "SwordMan";
     }
@@ -19,5 +19,6 @@ public class SwordMan : MonoBehaviour
     {
         return 40;
     }
-     
+
+ 
 }

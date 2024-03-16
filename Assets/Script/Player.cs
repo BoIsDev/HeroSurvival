@@ -2,21 +2,36 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject Sword;
-    public Transform pointSword;
+    private CharacterManager _characterManager;
 
-    private InputMoveHero inputMoveHero; // Thêm một trường inputMoveHero
-
-    void Start()
+    private void Start()
     {
-        inputMoveHero = FindObjectOfType<InputMoveHero>(); // Tìm đối tượng InputMoveHero trong scene
+        // Tìm đối tượng CharacterManager trong scene
+        _characterManager = FindObjectOfType<CharacterManager>();
+    }
 
-    }       
-        
+    private bool _hasSelectedCharacter = false;
 
-
-    public void Attack()
+    private void Update()
     {
+        if (!_hasSelectedCharacter)
+        {
+            CheckCharacterSelection();
+        }
+    }
 
-    }    
+    private void CheckCharacterSelection()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            _characterManager.SelectCharacter(0); // Chuyển đổi sang nhân vật có chỉ số 0
+            _hasSelectedCharacter = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            _characterManager.SelectCharacter(1); // Chuyển đổi sang nhân vật có chỉ số 1
+            _hasSelectedCharacter = true;
+        }
+    }
+
 }

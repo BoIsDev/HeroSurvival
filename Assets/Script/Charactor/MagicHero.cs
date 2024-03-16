@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicHero : MonoBehaviour
-{
+public class MagicHero : MonoBehaviour, ICharacter
 
-    
+{
     public string GetNameCharacter()
     {
         return "Magic";
@@ -19,5 +18,6 @@ public class MagicHero : MonoBehaviour
     {
         return 40;
     }
-     
+    
+  
 }
