@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootMagic : WeaponManager
+public class ShootMagic : MonoBehaviour
 {
     [SerializeField] protected bool isShooting = true;   //Đang bắn = false; 
     [SerializeField] public GameObject swordPrefab; // Đây là prefab của sword
@@ -19,7 +19,7 @@ public class ShootMagic : WeaponManager
         this.Shooting();
     }
 
-   protected override void Shooting()
+   protected  void Shooting()
     {
         if (this.isShooting) return;
         timeDefault = 0f;

@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-public class ShootSword : WeaponManager
+public class ShootSword : MonoBehaviour
 {
     [SerializeField] protected bool isShooting = true;   //Đang bắn = false; 
     [SerializeField] public GameObject swordPrefab; // Đây là prefab của sword
@@ -23,7 +23,7 @@ public class ShootSword : WeaponManager
         this.Shooting();
     }
 
-   protected override void Shooting()
+   protected void Shooting()
     {
         if (this.isShooting) return;
         timeDefault = 0f;

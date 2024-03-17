@@ -13,15 +13,16 @@ public class CharacterManager : MonoBehaviour
     private void Awake()
     {
         InitializeCharacters();
+        //Set Default Character 
         foreach (GameObject character in _characters)
         {
             character.SetActive(false);
         }
     }
 
+        // Tạo các đối tượng SwordMan và MagicHero từ prefab
    private void InitializeCharacters()
     {
-        // Tạo các đối tượng SwordMan và MagicHero từ prefab
         GameObject swordManObject = Instantiate(swordManPrefab, transform.position, Quaternion.identity, transform);
         SwordMan swordMan = swordManObject.AddComponent<SwordMan>();
 
@@ -56,4 +57,6 @@ public class CharacterManager : MonoBehaviour
             Debug.LogWarning("Character index out of range.");
         }
     }
+
+    
 }
