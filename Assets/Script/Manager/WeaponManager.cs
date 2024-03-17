@@ -55,6 +55,7 @@ public class WeaponManager : MonoBehaviour
         {
             addWeaponsCurrent.Add(magicObject);
             magicObject.SetActive(true);
+            Debug.Log("Added ");
         }
     }
 }

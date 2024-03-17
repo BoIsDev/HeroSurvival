@@ -5,20 +5,14 @@ public class SwordMan : MonoBehaviour, ICharacter
 
 {
   
-     public string GetNameCharacter()
-    {
-        return "SwordMan";
-    }
+     public string SetNameCharacter() => "Swordsman";
+    
+    public int SetHealth() => 100;
+   
 
-    public int GetHealth()
-    {
-        return 100;
-    }
+    public int SetArmor() => 40;
+  
 
-    public int GetArmor()
-    {
-        return 40;
-    }
-
- 
+    public int SetExp() => 0;
+   
 }

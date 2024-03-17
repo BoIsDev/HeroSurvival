@@ -21,13 +21,13 @@ public class CharacterManager : MonoBehaviour
     }
 
         // Tạo các đối tượng SwordMan và MagicHero từ prefab
-   private void InitializeCharacters()
+   protected void InitializeCharacters()
     {
         GameObject swordManObject = Instantiate(swordManPrefab, transform.position, Quaternion.identity, transform);
         SwordMan swordMan = swordManObject.AddComponent<SwordMan>();
 
         GameObject magicHeroObject = Instantiate(magicHeroPrefab, transform.position, Quaternion.identity, transform);
-        MagicHero magicHero = magicHeroObject.GetComponent<MagicHero>();
+        MagicHero magicHero = magicHeroObject.AddComponent<MagicHero>();
 
         // Thêm SwordMan và MagicHero vào danh sách
         _characters.Add(swordManObject);
@@ -45,6 +45,7 @@ public class CharacterManager : MonoBehaviour
                 {
                     _selectedCharacter = _characters[i];
                     _selectedCharacter.SetActive(true);
+                    GetInforCharacter();
                 }
                 else
                 {
@@ -56,6 +57,31 @@ public class CharacterManager : MonoBehaviour
         {
             Debug.LogWarning("Character index out of range.");
         }
+    }
+
+    public void GetInforCharacter()
+    {
+        SwordMan swordMan = _selectedCharacter.GetComponent<SwordMan>();
+        MagicHero magicHero = _selectedCharacter.GetComponent<MagicHero>();
+       if (swordMan != null)
+            {
+                string nameHero = swordMan.SetNameCharacter();
+                int healthHero = swordMan.SetHealth();
+                int armorHero = swordMan.SetArmor();
+                int expHero = swordMan.SetExp();
+                Debug.Log("nameHero: " + nameHero + ", health: " + healthHero + ", armor: " + armorHero + ", exp: " + expHero );
+
+            }
+        else if (magicHero != null)
+            {
+                string nameHero = magicHero.SetNameCharacter();
+                int healthHero = magicHero.SetHealth();
+                int armorHero = magicHero.SetArmor();
+                int expHero = magicHero.SetExp();
+                Debug.Log("nameHero: " + nameHero + ", health: " + healthHero + ", armor: " + armorHero + "exp: " + expHero  );
+
+            }
+
     }
 
     

@@ -4,20 +4,15 @@ using UnityEngine;
 public class MagicHero : MonoBehaviour, ICharacter
 
 {
-    public string GetNameCharacter()
-    {
-        return "Magic";
-    }
+    public string SetNameCharacter() => "MagicHero";
+   
 
-    public int GetHealth()
-    {
-        return 100;
-    }
-
-    public int GetArmor()
-    {
-        return 40;
-    }
+    public int SetHealth() => 100;
+   
+    public int SetArmor() => 40;
+    
+    public int SetExp() => 0;
+ 
     
   
 }
