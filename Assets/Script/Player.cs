@@ -4,7 +4,7 @@ public class Player : MonoBehaviour
 {
     private CharacterManager _characterManager;
     private WeaponManager _weaponManager;
-
+    
     private bool _hasSelectedCharacter = false;
 
     private void Start()
@@ -33,7 +33,6 @@ public class Player : MonoBehaviour
             _hasSelectedCharacter = true;
             _weaponManager.AddWeapons("sword");
             _characterManager.GetInforCharacter();
-
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {

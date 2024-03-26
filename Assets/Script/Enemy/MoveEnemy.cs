@@ -12,9 +12,11 @@ public class MoveEnemy : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindWithTag("Player").transform; // Tìm đối tượng Player bằng tag
+
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (player != null)
         {

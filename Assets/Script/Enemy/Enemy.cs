@@ -11,7 +11,6 @@ public interface IEnemy
 
     int SetExpEnemy();
 
-    void SetAttackEnemy();
-
+    
     void SetDeadEnemy();
 }
