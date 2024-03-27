@@ -3,59 +3,71 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    // Prefabs của các loại vũ khí
-    public GameObject swordPrefab;
-    public GameObject magicPrefab;
-
-    // Danh sách chứa các loại vũ khí
-    private List<GameObject> weapons = new List<GameObject>();
-
-    private List<GameObject> addWeaponsCurrent = new List<GameObject>();
-
-    private GameObject swordObject;
-    private GameObject magicObject;
+    private static WeaponManager instance;
+    public static WeaponManager Instance { get { return instance; } }
     
+    public Dictionary<string, PoolObject> weaponPools = new Dictionary<string, PoolObject>();
+
+    public MagicPool magicPool;
+    public SwordPool swordPool;
+
     private void Awake()
     {
-        // Khởi tạo các vũ khí
-        InitializeWeapons();
-
-        // Mặc định, tắt tất cả vũ khí
-        foreach (GameObject weapon in weapons)
+        if (instance != null && instance != this)
         {
-            weapon.SetActive(false);   
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
 
-    }
-
-    protected void InitializeWeapons()
-    {
-        // Tạo vũ khí Sword
-        swordObject = Instantiate(swordPrefab, transform.position, Quaternion.identity, transform);
-        Sword sword = swordObject.GetComponent<Sword>();
-
-        // Tạo vũ khí Magic
-        magicObject = Instantiate(magicPrefab, transform.position, Quaternion.identity, transform);
-        Magic magic = magicObject.GetComponent<Magic>();
-
-        // Thêm vũ khí vào danh sách
-        weapons.Add(swordObject);
-        weapons.Add(magicObject);
-    }
-
-    public void AddWeapons(string weaponName)
-    {   
-        if(weaponName == "sword")
+        if (magicPool != null)
         {
-            addWeaponsCurrent.Add(swordObject);
-            swordObject.SetActive(true);
+            AddPoolWeapons("MagicPool", magicPool);
         }
         
-        if(weaponName == "magic")
+        if (swordPool != null)  
         {
-            addWeaponsCurrent.Add(magicObject);
-            magicObject.SetActive(true);
-            Debug.Log("Added ");
+            AddPoolWeapons("SwordPool", swordPool);
+        }
+    }
+
+    public void AddPoolWeapons(string key, PoolObject weaponPool)
+    {
+        if (!weaponPools.ContainsKey(key))
+        {
+            weaponPools.Add(key, weaponPool);
+        }
+        else
+        {
+            Debug.LogWarning("Pool with key " + key + " already exists.");
+        }
+    }
+
+    public GameObject GetObjectFromPool(string key)
+    {
+        if (weaponPools.ContainsKey(key))
+        {
+            return weaponPools[key].GetObjectFromPool();
+        }
+        else
+        {
+            Debug.LogWarning("Pool with key " + key + " does not exist.");
+            return null;
+        }
+    }
+
+    public void ReturnObjectToPool(string key, GameObject obj)
+    {
+        if (weaponPools.ContainsKey(key))
+        {
+            weaponPools[key].ReturnObjectToPool(obj);
+        }
+        else
+        {
+            Debug.LogWarning("Pool with key " + key + " does not exist.");
         }
     }
 }

@@ -9,6 +9,8 @@ public class PoolManager : MonoBehaviour
     public Dictionary<string, PoolObject> pools = new Dictionary<string, PoolObject>();
 
     public SkeletonPool skeletonPool;
+
+    public GoblinPool goblinPool;
     private  void Awake()
     {
         // Add pool for Skeleton
@@ -24,7 +26,12 @@ public class PoolManager : MonoBehaviour
          if (skeletonPool != null)
         {
             AddPool("SkeletonPool", skeletonPool);
-        }    
+
+        }
+        if(goblinPool != null)  
+        {
+            AddPool("GoblinPool",goblinPool);
+        }
     }
 
     public void AddPool(string key, PoolObject pool)
@@ -32,7 +39,6 @@ public class PoolManager : MonoBehaviour
         if (!pools.ContainsKey(key))
         {
             pools.Add(key, pool);
-            Debug.Log("add");
         }
         else
         {

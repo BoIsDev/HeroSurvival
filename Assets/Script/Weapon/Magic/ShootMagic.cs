@@ -24,18 +24,13 @@ public class ShootMagic : MonoBehaviour
         if (this.isShooting) return;
         timeDefault = 0f;
         // Khởi tạo prefab và lưu trữ tham chiếu đến instance
-        GameObject swordInstance = Instantiate(swordPrefab, pointWeapinSword.position, Quaternion.identity);
+        GameObject spawnedObject = WeaponManager.Instance.GetObjectFromPool("MagicPool");
         
         // Chuyển instance vào coroutine
-        StartCoroutine(DestroySwordInstanceAfterDelay(swordInstance, 2));
         isShooting = !isShooting;
     }
 
-    private IEnumerator DestroySwordInstanceAfterDelay(GameObject swordInstance, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Destroy(swordInstance); // Hủy instance sau một khoảng thời gian
-    }
+
 
 
     private void TimeShoots()
