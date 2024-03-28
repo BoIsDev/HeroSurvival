@@ -8,8 +8,6 @@ public class WeaponManager : MonoBehaviour
     
     public Dictionary<string, PoolObject> weaponPools = new Dictionary<string, PoolObject>();
 
-    public MagicPool magicPool;
-    public SwordPool swordPool;
 
     private void Awake()
     {
@@ -21,16 +19,6 @@ public class WeaponManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
-        }
-
-        if (magicPool != null)
-        {
-            AddPoolWeapons("MagicPool", magicPool);
-        }
-        
-        if (swordPool != null)  
-        {
-            AddPoolWeapons("SwordPool", swordPool);
         }
     }
 

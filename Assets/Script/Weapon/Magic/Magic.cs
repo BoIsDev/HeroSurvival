@@ -5,7 +5,8 @@ public class Magic : MonoBehaviour, IWeapons
     // Tốc độ của Magic
     // Thể hiện của Rigidbody2D
     private Rigidbody2D rb;
-    void Awake()
+
+    void Start()
     {
         // Lấy thể hiện của Rigidbody2D từ đối tượng
         rb = GetComponent<Rigidbody2D>();

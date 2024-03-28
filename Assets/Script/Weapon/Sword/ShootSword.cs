@@ -3,8 +3,7 @@ using UnityEngine;
 public class ShootSword : MonoBehaviour
 {
     [SerializeField] protected bool isShooting = true;   //Đang bắn = false; 
-    [SerializeField] public GameObject swordPrefab; // Đây là prefab của sword
-    public Transform pointWeapinSword;
+    public Transform OnHand; //bắn vị trí bên cạnh player
     protected InputMoveHero inputMoveHero; // Thêm biến này để lưu tham chiếu
     private FlipManager flipManager;
 
@@ -29,19 +28,22 @@ public class ShootSword : MonoBehaviour
         timeDefault = 0f;
         Quaternion rotation = flipManager.isFacingRight ? Quaternion.identity : Quaternion.Euler(0f, 180f, 0f);
         // Khởi tạo prefab và lưu trữ tham chiếu đến instance
-        GameObject swordInstance = Instantiate(swordPrefab, pointWeapinSword.position, rotation);
+        GameObject spawnedObject = WeaponManager.Instance.GetObjectFromPool("SwordPool");
+
+        if (spawnedObject != null)
+    {
+        // Thiết lập vị trí và hướng cho đạn
+        spawnedObject.transform.position = OnHand.position;
+        spawnedObject.transform.rotation = rotation * OnHand.rotation; // Sử dụng phép nhân quaternion để kết hợp 2 rotations
+
+        // Kích hoạt đối tượng sau khi đã thiết lập vị trí và hướng
+        spawnedObject.SetActive(true);
+    }
+
         
         // Chuyển instance vào coroutine
-        StartCoroutine(DestroySwordInstanceAfterDelay(swordInstance, 2));
         isShooting = !isShooting;
     }
-
-    private IEnumerator DestroySwordInstanceAfterDelay(GameObject swordInstance, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Destroy(swordInstance); // Hủy instance sau một khoảng thời gian
-    }
-
 
     private void TimeShoots()
     {

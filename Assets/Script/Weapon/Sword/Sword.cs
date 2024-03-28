@@ -5,7 +5,7 @@ public class Sword : MonoBehaviour, IWeapons
     // Tốc độ của Sword
     // Thể hiện của Rigidbody2D
     private Rigidbody2D rb;
-    void Awake()
+    void Start()
     {
         // Lấy thể hiện của Rigidbody2D từ đối tượng
         rb = GetComponent<Rigidbody2D>();

@@ -27,7 +27,6 @@ public class Skeleton1 : MonoBehaviour, IEnemy
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("a");// Xử lý khi va chạm với đối tượng "Enemy" ở đây
             PoolManager.Instance.ReturnObjectToPool("SkeletonPool", gameObject);
             skeletonSpawn.currentObjects--;
         }    
