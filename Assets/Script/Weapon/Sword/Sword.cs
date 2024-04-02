@@ -9,7 +9,10 @@ public class Sword : MonoBehaviour, IWeapons
     {
         // Lấy thể hiện của Rigidbody2D từ đối tượng
         rb = GetComponent<Rigidbody2D>();
-       ProssetBullet();
+        transform.rotation = Quaternion.Euler(0, 0, 0); // Hướng ngang, không xoay
+
+        ProssetBullet();
+        
     }
     // Triển khai phương thức từ interface
     public string GetNameWeapons { get { return "Sword"; } }
@@ -18,10 +21,13 @@ public class Sword : MonoBehaviour, IWeapons
 
     // Phương thức này được gọi khi đạn của Sword được bắn ra
     public void ProssetBullet()
+    {   
+    if (FlipManager.Instance.isFacingRight)
     {
-      
-        // Thay đổi vận tốc của đạn để nó di chuyển theo hướng của đối tượng Sword
-        rb.velocity = transform.right * GetSpeed;
+        rb.velocity = transform.right * GetSpeed;    }
+    else
+    {
+        rb.velocity = -transform.right * GetSpeed;    }
     }
 
     // Phương thức Awake được sử dụng để khởi tạo đối tượng

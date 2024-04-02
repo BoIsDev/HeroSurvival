@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class Skeleton1 : MonoBehaviour, IEnemy
 {
-    SkeletonSpawn skeletonSpawn;
-    Player player;
-    void Awake()
-    {
-        player = FindObjectOfType<Player>();
-        skeletonSpawn = FindObjectOfType<SkeletonSpawn>();
-    }
+   
     public string SetNameEnemy() => "Skeleton1";
 
     public int SetHealthEnemy() => 20;
@@ -23,12 +17,5 @@ public class Skeleton1 : MonoBehaviour, IEnemy
     {}
  
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if(other.gameObject.CompareTag("Player"))
-        {
-            PoolManager.Instance.ReturnObjectToPool("SkeletonPool", gameObject);
-            skeletonSpawn.currentObjects--;
-        }    
-    }
+
 }

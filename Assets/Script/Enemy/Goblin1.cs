@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class Goblin1 : MonoBehaviour, IEnemy
 {
-    GoblinSpawn goblinSpawn;
-    Player player;
-    void Awake()
-    {
-        player = FindObjectOfType<Player>();
-        goblinSpawn = FindObjectOfType<GoblinSpawn>();
-    }
+
     public string SetNameEnemy() => "Goblin1";
 
     public int SetHealthEnemy() => 20;
@@ -23,12 +17,5 @@ public class Goblin1 : MonoBehaviour, IEnemy
     {}
  
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if(other.gameObject.CompareTag("Player"))
-        {
-            PoolManager.Instance.ReturnObjectToPool("GoblinPool", gameObject);
-            goblinSpawn.currentObjects--;
-        }    
-    }
+  
 }

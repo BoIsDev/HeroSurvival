@@ -15,7 +15,6 @@ public class InputMoveHero : MonoBehaviour
 
     private void Awake()
     {
-        flipManager = FindObjectOfType<FlipManager>();
 
         if (InputMoveHero.instance != null)
         {
@@ -37,9 +36,9 @@ public class InputMoveHero : MonoBehaviour
         heroPos.y = Input.GetAxis("Vertical");
         heroPos.z = 0;
         transform.parent.position += heroPos * speedHero * Time.deltaTime;
-        if (heroPos.x > 0 && !flipManager.isFacingRight || heroPos.x < 0 && flipManager.isFacingRight)
+        if (heroPos.x > 0 && !FlipManager.Instance.isFacingRight || heroPos.x < 0 && FlipManager.Instance.isFacingRight)
         {
-            flipManager.FlipX(transform.parent);
+            FlipManager.Instance.FlipX(transform.parent);
         }
     }
 }

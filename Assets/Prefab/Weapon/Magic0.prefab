@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2226151125654181718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6752672470576882935}
+  - component: {fileID: 870121761751540562}
+  m_Layer: 0
+  m_Name: ShootWeapon (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6752672470576882935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226151125654181718}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.000000014459147, w: 1}
+  m_LocalPosition: {x: -5.021141, y: -3.6899183, z: -0.24827798}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5596531966321303855}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &870121761751540562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226151125654181718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1208fae051e12e14c9645c081a0fcd27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootDelay: 0.2
+  shootTimer: 0
 --- !u!1 &7116643240193787242
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,12 +61,12 @@ GameObject:
   - component: {fileID: 4799838917054080533}
   - component: {fileID: 3453214713209661185}
   m_Layer: 0
-  m_Name: Magic_0
+  m_Name: Magic0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5596531966321303855
 Transform:
   m_ObjectHideFlags: 0
@@ -29,11 +75,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7116643240193787242}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.07, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6752672470576882935}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &802524598009537285
@@ -183,4 +230,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3917e508c66380f4c82bfb86df6cb9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10

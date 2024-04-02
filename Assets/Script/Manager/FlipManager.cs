@@ -1,18 +1,37 @@
 using UnityEngine;
 
-public class FlipManager : MonoBehaviour
+public class FlipManager : BoDevMonoBehaviour
 {
     public bool isFacingRight = true;
 
-    public void FlipX(Transform targetTransform)
+    private static FlipManager instance;
+
+    public static FlipManager Instance { get { return instance; } }
+
+    protected override void Awake()
     {
-        isFacingRight =!isFacingRight;
+        base.Awake();
+        if (instance != null)
+        {
+            Debug.LogError("Only 1 FlipManager allow to exist");
+            Destroy(gameObject); // Destroy duplicate instance
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // Keep the FlipManager throughout scenes
+        }
+    }
+
+    public virtual void FlipX(Transform targetTransform)
+    {
+        isFacingRight = !isFacingRight;
         Vector3 scale = targetTransform.localScale;
         scale.x *= -1;
         targetTransform.localScale = scale;
     }
 
-    public void FlipY(Transform targetTransform)
+    public virtual void FlipY(Transform targetTransform)
     {
         Vector3 scale = targetTransform.localScale;
         scale.y *= -1;
