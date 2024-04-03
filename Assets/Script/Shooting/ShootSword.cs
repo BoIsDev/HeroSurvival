@@ -39,7 +39,7 @@ public class ShootSword : ShootWeapon
         }
         else
         {
-            return Quaternion.Euler(0f, 0f, 180f); // Xoay 180 độ khi nhìn về bên trái
+            return Quaternion.Euler(0f,  180f,0f); // Xoay 180 độ khi nhìn về bên trái
         }
     }
 

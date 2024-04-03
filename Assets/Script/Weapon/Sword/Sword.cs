@@ -1,35 +1,45 @@
 using UnityEngine;
 
-public class Sword : MonoBehaviour, IWeapons
+public class Sword : BoDevMonoBehaviour, IWeapons
 {
-    // Tốc độ của Sword
-    // Thể hiện của Rigidbody2D
-    private Rigidbody2D rb;
-    void Start()
-    {
-        // Lấy thể hiện của Rigidbody2D từ đối tượng
-        rb = GetComponent<Rigidbody2D>();
-        transform.rotation = Quaternion.Euler(0, 0, 0); // Hướng ngang, không xoay
+     private Rigidbody2D rbParent;
 
-        ProssetBullet();
-        
+    protected override void Start()
+    {
+        base.Start();
+        // Tìm và lấy thể hiện của Rigidbody2D từ phần tử cha
+        rbParent = GetComponentInParent<Rigidbody2D>();
+        if(rbParent == null)
+        {
+            Debug.LogError("Rigidbody2D không tồn tại trên phần tử cha");
+            return;
+        }
+
+        transform.rotation = Quaternion.Euler(0, 0, 0); // Hướng ngang, không xoay
+        ProcessBullet();
+        // Debug.Log(GetSpeed +"Speead");
     }
-    // Triển khai phương thức từ interface
+
+    protected override void OnEnable()
+    {
+        // Đặt lại hướng và vận tốc mỗi khi đối tượng được kích hoạt.
+        this.Start();
+    }
     public string GetNameWeapons { get { return "Sword"; } }
     public float Dame { get { return 2f; } }
     public float GetSpeed { get { return 5f; } }
 
-    // Phương thức này được gọi khi đạn của Sword được bắn ra
-    public void ProssetBullet()
-    {   
-    if (FlipManager.Instance.isFacingRight)
+    public virtual void ProcessBullet()
     {
-        rb.velocity = transform.right * GetSpeed;    }
-    else
-    {
-        rb.velocity = -transform.right * GetSpeed;    }
+        if (FlipManager.Instance.isFacingRight)
+        {
+            rbParent.velocity = transform.right * GetSpeed;
+        }
+        else
+        {
+            rbParent.velocity = -transform.right * GetSpeed;
+        }
     }
 
-    // Phương thức Awake được sử dụng để khởi tạo đối tượng
-  
+    
 }

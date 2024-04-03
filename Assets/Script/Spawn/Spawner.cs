@@ -49,16 +49,15 @@ public abstract class Spawner :BoDevMonoBehaviour
         Transform prefab = this.GetPrefabByName(prefabName);
         if(prefab == null)
         {
-            Debug.Log("Prefab not found: " + prefabName);
+            Debug.LogWarning("Prefab not found: " + prefabName);
             return null;
         }
 
         Transform newPrefab = this.GetObjectFromPool(prefab);
         newPrefab.SetPositionAndRotation(spawnPos, rotation);
-
         newPrefab.parent = this.holder;
-        return prefab;
-    } 
+        return newPrefab;
+    }
 
     protected virtual Transform GetObjectFromPool(Transform prefab)
     {
@@ -69,17 +68,18 @@ public abstract class Spawner :BoDevMonoBehaviour
                 return poolObj;
             }
         }
-
         Transform newPrefab = Instantiate(prefab);
         newPrefab.name = prefab.name;
         return newPrefab;
     }
 
-    // public virtual void Despawn(Transform obj)
-    // {
-    //     this.poolObjs.Add(obj);
-    //     obj.gameObject.SetActive(false);
-    // }
+    public virtual void Despawn(Transform obj)
+    {
+        Debug.Log("Despawn");
+        this.poolObjs.Add(obj);
+        obj.gameObject.SetActive(false);
+        
+    }
 
     public virtual Transform GetPrefabByName(string prefabName)
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class ShootWeapon : BoDevMonoBehaviour
 {
-    [SerializeField] protected float shootDelay = 1f;
+    [SerializeField] protected float shootDelay = 5f;
     [SerializeField] protected float shootTimer = 0f;   
      protected Transform spawnPos;
     protected Player player; // Khai báo player
@@ -18,9 +18,9 @@ public abstract class ShootWeapon : BoDevMonoBehaviour
 
     
 
-    protected override void Update()
+    protected override void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
         this.Shooting();
     }
 

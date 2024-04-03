@@ -19,7 +19,6 @@ public class FlipManager : BoDevMonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Keep the FlipManager throughout scenes
         }
     }
 

@@ -8,6 +8,6 @@ public interface IWeapons
     float Dame{ get;  }
     float GetSpeed{ get; }
 
-    void ProssetBullet();
+    void ProcessBullet();
 
 }

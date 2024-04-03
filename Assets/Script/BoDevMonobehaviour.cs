@@ -17,7 +17,16 @@ public class BoDevMonoBehaviour : MonoBehaviour
         this.LoadComponents();
     }
 
+    protected virtual void FixedUpdate()
+    {}
+
     protected virtual void Update()
+    {}
+
+    protected virtual void Start()
+    {}
+
+    protected virtual void OnEnable()
     {}
 
 }
