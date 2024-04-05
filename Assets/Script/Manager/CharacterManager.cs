@@ -45,13 +45,13 @@ public class CharacterManager : MonoBehaviour
                 {
                     _selectedCharacter = _characters[i];
                     _selectedCharacter.SetActive(true);
-                    GetInforCharacter();
                 }
                 else
                 {
                     _characters[i].SetActive(false);
                 }
             }
+
         }
         else
         {

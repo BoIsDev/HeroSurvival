@@ -5,9 +5,7 @@ public class InputMoveHero : MonoBehaviour
     private static InputMoveHero instance;
     public static InputMoveHero Instance { get => instance; }
 
-    protected Vector3 heroPos;
-
-    public Vector3 HeroPos { get => heroPos; }
+    public Vector3 heroPos;
 
     private Rigidbody2D rb;
     protected float speedHero = 5f;
@@ -41,4 +39,6 @@ public class InputMoveHero : MonoBehaviour
             FlipManager.Instance.FlipX(transform.parent);
         }
     }
+
+    
 }

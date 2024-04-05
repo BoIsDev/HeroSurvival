@@ -1,18 +1,18 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : BoDevMonoBehaviour
 {
     private CharacterManager _characterManager;
     
    
     private bool _hasSelectedCharacter = false;
 
-    private void Start()
+    protected override void Awake()
     {
         _characterManager = FindObjectOfType<CharacterManager>();
     }
 
-    private void Update()
+    protected override void Update()
     {
         if (!_hasSelectedCharacter)
         {
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
       
     }
 
-    private void CheckCharacterSelection()
+    protected virtual void CheckCharacterSelection()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
             _hasSelectedCharacter = true;
             // WeaponManager.Instance.AddPoolWeapons("SwordPool", swordPool);
             _characterManager.GetInforCharacter();
+
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void CheckWeaponSelection()
+    protected virtual void CheckWeaponSelection()
     {
         // if (Input.GetKeyDown(KeyCode.J))
         // {

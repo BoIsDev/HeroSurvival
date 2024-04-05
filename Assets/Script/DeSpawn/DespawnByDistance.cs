@@ -11,14 +11,14 @@ public class DespawnByDistance : Despawn
 
     protected override void LoadComponents()
     {
-        this.LoadCamera();
+        this.LoadPositionPlayer();
     }
 
-    protected virtual void LoadCamera()
+    protected virtual void LoadPositionPlayer()
     {
         if (this.player != null) return;
         this.player = Transform.FindObjectOfType<Player>().transform;
-        Debug.Log(transform.parent.name + ": LoadCamera", gameObject);
+        Debug.Log(transform.parent.name + ": LoadPositionPlayer", gameObject);
     }
 
     protected override bool CanDespawn()

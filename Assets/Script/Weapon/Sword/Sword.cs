@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Sword : BoDevMonoBehaviour, IWeapons
 {
-     private Rigidbody2D rbParent;
+    private Rigidbody2D rb;
 
     protected override void Start()
     {
         base.Start();
         // Tìm và lấy thể hiện của Rigidbody2D từ phần tử cha
-        rbParent = GetComponentInParent<Rigidbody2D>();
-        if(rbParent == null)
+        rb = GetComponent<Rigidbody2D>();
+        if(rb == null)
         {
             Debug.LogError("Rigidbody2D không tồn tại trên phần tử cha");
             return;
@@ -33,11 +33,11 @@ public class Sword : BoDevMonoBehaviour, IWeapons
     {
         if (FlipManager.Instance.isFacingRight)
         {
-            rbParent.velocity = transform.right * GetSpeed;
+            rb.velocity = transform.right * GetSpeed;
         }
         else
         {
-            rbParent.velocity = -transform.right * GetSpeed;
+            rb.velocity = -transform.right * GetSpeed;
         }
     }
 

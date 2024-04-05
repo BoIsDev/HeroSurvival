@@ -4,16 +4,19 @@ public class ShootMagic : ShootWeapon
 {
     [SerializeField] private Vector3 offset = new Vector3(0f,1.5f, 0f);
 
-    protected override void Awake()
+ 
+
+    protected override void Start()
     {
-        base.Awake();
-        // Các thiết lập cụ thể cho ShootSword có thể được thêm vào đây
+        base.Start();
+        SpawnWeapon.Instance.AddWeapon("Magic0");
+
     }
 
     // Ghi đè để thay đổi loại đạn
-    protected override string GetBulletType()
+    protected override string GetObjType()
     {
-        return SpawnWeapon.Magic0; // Giả sử đây là giá trị chuỗi đúng
+        return this.SetObjectType();
     }
 
     // Ghi đè để thay đổi vị trí spawn
@@ -22,5 +25,10 @@ public class ShootMagic : ShootWeapon
         return player.transform.position + offset;
     }
 
-    // Không cần ghi đè GetSpawnRotation() nếu không cần thiết
+    public virtual string SetObjectType()
+    {
+        return SpawnWeapon.Instance.GetNameObj("Magic0");
+
+    } 
+    
 }

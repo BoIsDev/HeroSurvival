@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Spawner :BoDevMonoBehaviour
 {
     [SerializeField] protected Transform holder;
-    [SerializeField] protected List<Transform> prefabs;
+    [SerializeField] protected List<Transform> prefabs;   
     [SerializeField] protected List<Transform> poolObjs;
 
     protected override void LoadComponents()

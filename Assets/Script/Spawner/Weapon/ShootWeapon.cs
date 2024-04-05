@@ -15,9 +15,6 @@ public abstract class ShootWeapon : BoDevMonoBehaviour
         if(player == null) return; 
         spawnPos = player.transform; 
     }
-
-    
-
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
@@ -29,12 +26,12 @@ public abstract class ShootWeapon : BoDevMonoBehaviour
         this.shootTimer += Time.deltaTime;
         if (this.shootTimer < this.shootDelay) return;
         this.shootTimer = 0;
-        Transform newBullet = SpawnWeapon.Instance.Spawn(GetBulletType(), GetSpawnPosition(), spawnPos.rotation);
+        Transform newBullet = SpawnWeapon.Instance.Spawn(GetObjType(), GetSpawnPosition(), spawnPos.rotation);
         if (newBullet == null) return;
         newBullet.gameObject.SetActive(true);
         Debug.Log("Shooting");
     }
-    protected abstract string GetBulletType();
+    protected abstract string GetObjType();
 
     // Cho phép ghi đè vị trí spawn
     protected virtual Vector3 GetSpawnPosition()
