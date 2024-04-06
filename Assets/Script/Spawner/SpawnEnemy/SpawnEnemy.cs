@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class SpawnEnemy : BoDevMonoBehaviour
 {
+  
     [SerializeField] protected float shootDelay = 5f;
     [SerializeField] protected float shootTimer = 0f;   
     [SerializeField] protected Transform spawnPos;
@@ -12,11 +13,12 @@ public abstract class SpawnEnemy : BoDevMonoBehaviour
     protected override void Awake()
     {
         base.Awake();
+
         player = FindObjectOfType<Player>();
         if(player == null) return; 
         spawnPos = player.transform; 
     }
-
+    
     protected override void FixedUpdate()
     {
         base.FixedUpdate();

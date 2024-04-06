@@ -7,8 +7,8 @@ public class DamageReceiver : BoDevMonoBehaviour
 {
     [Header("Damage Receiver")]
     [SerializeField] protected SphereCollider sphereCollider;
-    [SerializeField] protected int hp = 1;
-    [SerializeField] protected int hpMax = 2;
+    [SerializeField] public int hp = 10;
+    [SerializeField] public int hpMax = 10;
     [SerializeField] protected bool isDead = false;
 
 
@@ -57,7 +57,7 @@ public class DamageReceiver : BoDevMonoBehaviour
         this.CheckIsDead();
     }
 
-    protected virtual bool IsDead()
+    public virtual bool IsDead()
     {
         return this.hp <= 0;
     }

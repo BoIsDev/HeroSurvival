@@ -28,7 +28,10 @@ public class BoDevMonoBehaviour : MonoBehaviour
 
     protected virtual void OnEnable()
     {
+            this.LoadComponents();  
+
     }
+
 
     protected virtual void OnTriggerEnter()
     {}

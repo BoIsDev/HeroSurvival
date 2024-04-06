@@ -75,7 +75,7 @@ public abstract class Spawner :BoDevMonoBehaviour
 
     public virtual void Despawn(Transform obj)
     {
-        Debug.Log("Despawn");
+        Debug.Log("Despawn" + obj.name);
         this.poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
         
