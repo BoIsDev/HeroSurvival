@@ -20,10 +20,22 @@ public class EnemyReceiver : DamageReceiver
     }
 
     protected override void OnDead()
-    {
+    {   
+     
         this.enemyCtrl.EnemyDeSpawn.DespawnObject();
-        Debug.Log("enemy DeSpawn OnDead");
+        this.OnDeadDropItems();
+        Debug.Log("enemy DeSpawn OnDead");       
     }
 
+    protected virtual void OnDeadDropItems()
+    {
+        DropManager.Instance.Drop(this.enemyCtrl.EnemySO.dropList);
+        Debug.LogWarning(this.enemyCtrl.EnemySO.dropList);
+    }
+    protected override void Reborn()
+    {
+        this.hpMax = this.enemyCtrl.EnemySO.hpMax;
+        base.Reborn();
+    }
 
 }

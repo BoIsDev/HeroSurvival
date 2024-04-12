@@ -9,9 +9,15 @@ public class EnemyCtrl : BoDevMonoBehaviour
     [SerializeField] protected EnemyDeSpawn enemyDeSpawn;
     public EnemyDeSpawn EnemyDeSpawn { get => enemyDeSpawn; }
 
+    
+    [SerializeField] protected EnemySO enemySO;
+    public EnemySO EnemySO => enemySO;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
+                this.LoadEnemySO();
+
         this.LoadDamageReceiver();
         this.LoadEnemyDeSpawnl();
     }
@@ -28,6 +34,14 @@ public class EnemyCtrl : BoDevMonoBehaviour
         if (this.enemyDeSpawn != null) return;
         this.enemyDeSpawn = transform.GetComponentInChildren<EnemyDeSpawn>();
         Debug.Log(transform.name + ": LoadWeaponCtrl", gameObject);
+    }
+
+    protected virtual void LoadEnemySO()
+    {
+        if(this.enemySO != null) return;
+        string resPath = "Enemy/" + transform.name;
+        this.enemySO = Resources.Load<EnemySO>(resPath);
+        Debug.LogWarning(transform.name + " LoandEnemySO" + resPath,gameObject); 
     }
 
 }

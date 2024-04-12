@@ -8,6 +8,7 @@ public class SpawnEnemyDefault : Spawner
 
     public static List<string> enemys = new List<string>();
 
+
     protected override void Awake()
     {
         base.Awake();
@@ -15,7 +16,10 @@ public class SpawnEnemyDefault : Spawner
         SpawnEnemyDefault.instance = this;
        
     }
+
+ 
   
+
     public virtual void AddEnemy(string enemy)
     {
         if(enemys.Contains(enemy)) return;

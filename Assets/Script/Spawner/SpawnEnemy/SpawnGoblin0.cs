@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnSkeleton : SpawnEnemy
+public class SpawnGoblin0 : SpawnEnemy
 {
-
-    protected override void Start()
+     protected override void Start()
     {
         base.Start();
-        Debug.Log("SpawnSkeleton");
-        SpawnEnemyDefault.Instance.AddEnemy("Skeleton0");
+        Debug.Log("SpawnGoblin");
+        SpawnEnemyDefault.Instance.AddEnemy("Goblin0");
      
    }
 
@@ -21,8 +20,7 @@ public class SpawnSkeleton : SpawnEnemy
     
      public virtual string SetObjectType()
     {
-        return SpawnEnemyDefault.Instance.GetNameObj("Skeleton0");
+        return SpawnEnemyDefault.Instance.GetNameObj("Goblin0");
 
     } 
 }
-

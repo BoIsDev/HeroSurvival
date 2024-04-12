@@ -7,17 +7,22 @@ public class DamageReceiver : BoDevMonoBehaviour
 {
     [Header("Damage Receiver")]
     [SerializeField] protected SphereCollider sphereCollider;
-    [SerializeField] public int hp = 10;
-    [SerializeField] public int hpMax = 10;
+    [SerializeField] public int hp = 5;
+    [SerializeField] public int hpMax = 5;
     [SerializeField] protected bool isDead = false;
 
 
     protected override void OnEnable()
     {
         this.Reborn();
-
     }
     
+
+    protected override void Reset()
+    {
+        base.Reset();
+        this.Reborn();
+    }
     
     protected override void LoadComponents()
     {
@@ -34,7 +39,7 @@ public class DamageReceiver : BoDevMonoBehaviour
         Debug.Log(transform.name + ": LoadCollider", gameObject);
     }
 
-    public virtual void Reborn()
+    protected virtual void Reborn()
     {
         this.hp = this.hpMax;
         this.isDead = false;
