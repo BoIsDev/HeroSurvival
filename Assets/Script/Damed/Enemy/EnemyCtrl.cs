@@ -16,10 +16,11 @@ public class EnemyCtrl : BoDevMonoBehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
-                this.LoadEnemySO();
-
+        this.LoadEnemySO();
         this.LoadDamageReceiver();
         this.LoadEnemyDeSpawnl();
+      
+
     }
 
     protected virtual void LoadDamageReceiver()

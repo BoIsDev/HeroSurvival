@@ -133,14 +133,14 @@ GameObject:
   m_Component:
   - component: {fileID: 28201604}
   - component: {fileID: 28201606}
-  - component: {fileID: 28201605}
+  - component: {fileID: 28201607}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &28201604
 Transform:
   m_ObjectHideFlags: 0
@@ -156,22 +156,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2092433001607884404}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &28201605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 28201603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e8198369323f4a46ba83412d9ad6cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sphereCollider: {fileID: 28201606}
-  hp: 10
-  hpMax: 10
-  isDead: 0
 --- !u!135 &28201606
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -191,8 +175,25 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.4
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &28201607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28201603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3468c58c461232e4e9d1b28c366bd040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereCollider: {fileID: 28201606}
+  hp: 5
+  hpMax: 5
+  isDead: 0
+  enemyCtrl: {fileID: 7759243294644260592}
 --- !u!1 &205718014
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,77 +766,6 @@ MonoBehaviour:
   shootDelay: 0.5
   shootTimer: 0
   offset: {x: 0, y: 1.5, z: 0}
---- !u!1 &937277717
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 937277718}
-  - component: {fileID: 937277720}
-  - component: {fileID: 937277719}
-  m_Layer: 0
-  m_Name: EnemyReceiver
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &937277718
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937277717}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2092433001607884404}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &937277719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937277717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3468c58c461232e4e9d1b28c366bd040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sphereCollider: {fileID: 937277720}
-  hp: 1
-  hpMax: 2
-  isDead: 0
-  enemyCtrl: {fileID: 7759243294644260592}
---- !u!135 &937277720
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937277717}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &970259661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,7 +1212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1770310499
 Transform:
   m_ObjectHideFlags: 0
@@ -53968,12 +53898,11 @@ Transform:
   m_GameObject: {fileID: 7759243294644260587}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -9, y: 0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 28201604}
-  - {fileID: 937277718}
   - {fileID: 2012787429}
   m_Father: {fileID: 1574616701}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54116,7 +54045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5596531965948794565
 Transform:
   m_ObjectHideFlags: 0
@@ -54412,7 +54341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &7759243294644260589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54478,7 +54407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccedd26461ffab54cba19e43ed890a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageReceiver: {fileID: 28201605}
+  damageReceiver: {fileID: 0}
   enemyDeSpawn: {fileID: 2012787430}
   enemySO: {fileID: 11400000, guid: 47d85b1fc1fc56d4cbc82f96fad7bdf5, type: 2}
 --- !u!4 &8264060810875044241

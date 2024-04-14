@@ -18,11 +18,6 @@ public class DamageReceiver : BoDevMonoBehaviour
     }
     
 
-    protected override void Reset()
-    {
-        base.Reset();
-        this.Reborn();
-    }
     
     protected override void LoadComponents()
     {
@@ -35,7 +30,7 @@ public class DamageReceiver : BoDevMonoBehaviour
         if (this.sphereCollider != null) return;
         this.sphereCollider = GetComponent<SphereCollider>();
         this.sphereCollider.isTrigger = true;
-        this.sphereCollider.radius = 0.2f;
+        this.sphereCollider.radius = 0.7f;
         Debug.Log(transform.name + ": LoadCollider", gameObject);
     }
 
@@ -43,6 +38,7 @@ public class DamageReceiver : BoDevMonoBehaviour
     {
         this.hp = this.hpMax;
         this.isDead = false;
+        Debug.Log(transform.name +"    " + this.hpMax );
     }
 
     public virtual void Add(int add)
