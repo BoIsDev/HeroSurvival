@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df88612e3b1d6a54c969101e57062a78, type: 3}
-  m_Name: ExpRed
+  m_Name: RepExp
   m_EditorClassIdentifier: 
-  itemName: ExpRed
-  valueExp: 20
+  itemCode: 2
+  itemName: Item
+  valueExp: 2

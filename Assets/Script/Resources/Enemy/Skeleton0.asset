@@ -15,11 +15,11 @@ MonoBehaviour:
   enemyName: Skelenton0
   hpMax: 1
   dropList:
-  - itemSO: {fileID: 11400000, guid: aa65c7e21a5fe43468131bb8699c03bb, type: 2}
+  - itemSO: {fileID: 11400000, guid: 028bfbecf661eac40a9de6e3a32ed5bd, type: 2}
     dropRate: 100
     minDrop: 1
     maxDrop: 1
-  - itemSO: {fileID: 11400000, guid: 028bfbecf661eac40a9de6e3a32ed5bd, type: 2}
+  - itemSO: {fileID: 11400000, guid: af0134c7305401d4cbd636b8afad8f7f, type: 2}
     dropRate: 1
     minDrop: 1
     maxDrop: 1

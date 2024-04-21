@@ -5,8 +5,13 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Item", menuName = "SO/Itemes")]
 public class ItemSO : ScriptableObject
-{
-    public string itemName = "ExpBlue";
-    public int valueExp = 10;  
+{   
+    
+    public ItemCode itemCode = ItemCode.NoItem;
+    public string itemName = "Item";
+
+    public int valueExp = 1;
+
+    
 
 }

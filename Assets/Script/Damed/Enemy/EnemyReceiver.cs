@@ -24,12 +24,15 @@ public class EnemyReceiver : DamageReceiver
      
         this.enemyCtrl.EnemyDeSpawn.DespawnObject();
         this.OnDeadDropItems();
-        Debug.Log("enemy DeSpawn OnDead");       
+        Debug.Log("enemy DeSpawn OnDead"); 
+        
     }
 
     protected virtual void OnDeadDropItems()
     {
-        DropManager.Instance.Drop(this.enemyCtrl.EnemySO.dropList);
+        Vector3 posDrop = transform.position;
+        Quaternion rotDrop = Quaternion.identity;   
+        ItemDropSpawner.Instance.Drop(this.enemyCtrl.EnemySO.dropList,posDrop,rotDrop);
         Debug.LogWarning(this.enemyCtrl.EnemySO.dropList);
     }
     protected override void Reborn()
