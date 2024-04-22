@@ -32,8 +32,10 @@ public class BoDevMonoBehaviour : MonoBehaviour
 
     }
 
-
-    protected virtual void OnTriggerEnter()
-    {}
+    protected virtual void ResetValue()
+    {
+        
+    }
+  
 
 }

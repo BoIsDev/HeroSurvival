@@ -22,7 +22,7 @@ public class WeaPonDamege : DamageSender
     {
         if (this.weaponCtrl != null) return;
         this.weaponCtrl = transform.parent.GetComponent<WeaponCtrl>();
-        Debug.Log(transform.name + ": LoadWeaponCtrl", gameObject);
+        // Debug.Log(transform.name + ": LoadWeaponCtrl", gameObject);
     }
 
        public override void Send(DamageReceiver damageReceiver)

@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d538b738b20a34b8347a4df4e32884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemCtrl: {fileID: 333227955}
   _collider: {fileID: 133244232}
 --- !u!135 &133244232
 SphereCollider:
@@ -259,7 +260,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.1
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &205718014
 GameObject:
@@ -369,13 +370,14 @@ GameObject:
   m_Component:
   - component: {fileID: 333227953}
   - component: {fileID: 333227954}
+  - component: {fileID: 333227955}
   m_Layer: 0
   m_Name: BlueExp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &333227953
 Transform:
   m_ObjectHideFlags: 0
@@ -445,6 +447,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &333227955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333227952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36374e528c714f444841a3d9797ce501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDespawn: {fileID: 740823954}
 --- !u!1 &384529269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,6 +1032,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 740823952}
+  - component: {fileID: 740823953}
+  - component: {fileID: 740823954}
   m_Layer: 0
   m_Name: DeSpawn
   m_TagString: Untagged
@@ -1039,6 +1056,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 333227953}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &740823953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740823951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89328053cfe6a694aa732a096c741acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &740823954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740823951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537f96224e69ef1458bd6da9ba4ee074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disLimit: 30
+  distance: 0
+  player: {fileID: 4640220464091758835}
 --- !u!1 &782330164
 GameObject:
   m_ObjectHideFlags: 0

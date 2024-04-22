@@ -34,7 +34,7 @@ public abstract class SpawnEnemy : BoDevMonoBehaviour
         Transform enemies = SpawnEnemyDefault.Instance.Spawn(GetObjType(), GetSpawnPosition(), spawnPos.rotation);
         if (enemies == null) return;
         enemies.gameObject.SetActive(true);
-        Debug.Log("SpawnEnemys");
+        // Debug.Log("SpawnEnemys");
     }
 
     protected abstract string GetObjType();

@@ -29,7 +29,7 @@ public abstract class ShootWeapon : BoDevMonoBehaviour
         Transform newBullet = SpawnWeapon.Instance.Spawn(GetObjType(), GetSpawnPosition(), spawnPos.rotation);
         if (newBullet == null) return;
         newBullet.gameObject.SetActive(true);
-        Debug.Log("Shooting");
+        // Debug.Log("Shooting");
     }
     protected abstract string GetObjType();
 

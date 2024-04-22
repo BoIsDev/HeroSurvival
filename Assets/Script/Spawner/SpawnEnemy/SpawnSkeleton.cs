@@ -8,7 +8,7 @@ public class SpawnSkeleton : SpawnEnemy
     protected override void Start()
     {
         base.Start();
-        Debug.Log("SpawnSkeleton");
+        // Debug.Log("SpawnSkeleton");
         SpawnEnemyDefault.Instance.AddEnemy("Skeleton0");
      
    }

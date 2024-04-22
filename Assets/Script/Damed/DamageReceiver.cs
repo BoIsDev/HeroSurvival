@@ -38,7 +38,7 @@ public class DamageReceiver : BoDevMonoBehaviour
     {
         this.hp = this.hpMax;
         this.isDead = false;
-        Debug.Log(transform.name +"    " + this.hpMax );
+        // Debug.Log(transform.name +"    " + this.hpMax );
     }
 
     public virtual void Add(int add)

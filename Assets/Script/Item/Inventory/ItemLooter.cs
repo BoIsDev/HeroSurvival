@@ -11,6 +11,15 @@ public class ItemLooter : BoDevMonoBehaviour
     [SerializeField] protected Rigidbody _rigidbody;
     public Transform playerTransform; // Tham chiếu đến transform của player
 
+    private static ItemLooter instance;
+    public static ItemLooter Instance { get => instance; }
+    protected override void Awake()
+    {
+        base.Awake();
+        if (ItemLooter.instance != null) Debug.LogError("Only 1 ItemLooter allow to exist");
+        ItemLooter.instance = this;
+       
+    }
     protected override void Update()
     {
         if (playerTransform != null)
@@ -38,7 +47,7 @@ public class ItemLooter : BoDevMonoBehaviour
         if (this._collider != null) return;
         this._collider = transform.GetComponent<SphereCollider>();
         this._collider.isTrigger = true;
-        this._collider.radius = 0.3f;
+        this._collider.radius = 0.5f;
         Debug.LogWarning(transform.name + " LoadTrigger", gameObject);
     }
 
@@ -51,14 +60,18 @@ public class ItemLooter : BoDevMonoBehaviour
         Debug.LogWarning(transform.name + " LoadRigidbody", gameObject);
     }
 
+  
     protected virtual void OnTriggerEnter(Collider collider)
     {
 
-        ItemPickupable itemPickupable = collider.GetComponent<ItemPickupable>();
+      ItemPickupable itemPickupable = collider.GetComponent<ItemPickupable>();
         if (itemPickupable == null) return;
-
-        Debug.Log(collider.name);
-        Debug.Log(collider.transform.parent.name);
-        Debug.Log("Co the pick");
+        Debug.Log("Pickup", itemPickupable);
+        ItemCode itemCode = itemPickupable.GetItemCode();
+        if (this.inventory.AddItem(itemCode, 1))
+        {
+            itemPickupable.Picked();
+            Debug.Log("ssss");
+        }
     }
 }
