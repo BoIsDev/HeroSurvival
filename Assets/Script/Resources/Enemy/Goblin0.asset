@@ -15,7 +15,11 @@ MonoBehaviour:
   enemyName: Enemy
   hpMax: 10
   dropList:
-  - itemSO: {fileID: 0}
+  - itemSO: {fileID: 11400000, guid: d9b5456e6671e8b4e9aaf66dddfcabff, type: 2}
+    dropRate: 0
+    minDrop: 0
+    maxDrop: 0
+  - itemSO: {fileID: 11400000, guid: 67659a5716924794dae317d0fcee5309, type: 2}
     dropRate: 0
     minDrop: 0
     maxDrop: 0

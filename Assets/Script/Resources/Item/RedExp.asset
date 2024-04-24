@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df88612e3b1d6a54c969101e57062a78, type: 3}
-  m_Name: RepExp
-  m_EditorClassIdentifier: 
+  m_Script: {fileID: 0}
+  m_Name: RedExp
+  m_EditorClassIdentifier: Assembly-CSharp::ItemProfileSO
   itemCode: 2
-  itemName: Item
-  valueExp: 2
+  itemType: 1
+  itemName: RedExp
+  defaultMaxStack: 7

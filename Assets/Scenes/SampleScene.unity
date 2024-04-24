@@ -54937,7 +54937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccedd26461ffab54cba19e43ed890a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageReceiver: {fileID: 0}
+  damageReceiver: {fileID: 28201607}
   enemyDeSpawn: {fileID: 2012787430}
   enemySO: {fileID: 11400000, guid: 47d85b1fc1fc56d4cbc82f96fad7bdf5, type: 2}
 --- !u!4 &8264060810875044241
